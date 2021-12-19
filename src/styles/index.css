@@ -12,9 +12,11 @@
 
 	--font-family-main: sans-serif;
 	--font-size-header: 26px;
+	--font-size-subheader: 18px;
 	--font-size-main: 16px;
 	--font-bold: 600;
-	--text-shadow-yellow: 0px 0px 2px var(--color-white), 0px 0px 40px var(--color-blue);
+	--text-shadow-yellow: 0px 0px 2px var(--color-white), 0px 0px 40px var(--color-yellow);
+	--text-shadow-blue: 0px 0px 2px var(--color-white), 0px 0px 40px var(--color-blue);
 
 	--border-radius-small: 3px;
 
