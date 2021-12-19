@@ -1,8 +1,28 @@
-import PeoplePage from '@containers/PeoplePage';
+import { BrowserRouter, Switch, NavLink, Route } from 'react-router-dom';
+import routesConfig from '@routes/routesConfig';
+import Header from '@components/Header/Header';
 import styles from './App.module.css';
 
 const App = () => {
-	return <PeoplePage />;
+	return (
+		<>
+			<BrowserRouter>
+				<div className={styles.wrapper}>
+					<Header />
+					<Switch>
+						{routesConfig.map((route, index) => (
+							<Route
+								key={index}
+								path={route.path}
+								exact={route.exact}
+								component={route.component}
+							/>
+						))}
+					</Switch>
+				</div>
+			</BrowserRouter>
+		</>
+	);
 };
 
 export default App;
