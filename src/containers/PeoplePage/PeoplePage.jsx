@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import { withErrorApi } from '@hoc-helpers/withErrorApi';
 import PeopleList from '@components/PeoplePage/PeopleList';
 import PeopleNavigation from '@components/PeopleNavigation';
-import { getPeopleId, getpeopleImage, getPeoplePageId } from '@services/getPeopleData';
+import { getPeopleId, getPeopleImage, getPeoplePageId } from '@services/getPeopleData';
 import { getApiResource, changeHTTP } from '@utils/network';
 import { API_PEOPLE } from '@constants/api';
 import { useQueryParams } from '@hooks/useQueryParams';
@@ -25,7 +25,7 @@ const PeoplePage = ({ setErrorApi }) => {
 		if (res) {
 			const peopleList = res.results.map(({ name, url }) => {
 				const id = getPeopleId(url);
-				const img = getpeopleImage(id);
+				const img = getPeopleImage(id);
 				return { name, id, img };
 			});
 			setPeople(peopleList);

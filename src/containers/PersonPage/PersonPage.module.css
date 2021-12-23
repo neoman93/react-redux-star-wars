@@ -1,0 +1,11 @@
+.wrapper {
+}
+.container {
+	border-left: 5px solid var(--color-violet);
+}
+
+.person__name {
+	background-color: var(--color-violet);
+}
+/* 4118
+ */
