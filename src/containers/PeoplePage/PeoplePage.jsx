@@ -7,6 +7,7 @@ import { getPeopleId, getpeopleImage, getPeoplePageId } from '@services/getPeopl
 import { getApiResource, changeHTTP } from '@utils/network';
 import { API_PEOPLE } from '@constants/api';
 import { useQueryParams } from '@hooks/useQueryParams';
+
 import styles from './PeoplePage.module.css';
 
 const PeoplePage = ({ setErrorApi }) => {
