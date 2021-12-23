@@ -18,7 +18,6 @@ const PersonPage = ({ match, setErrorApi }) => {
 		(async () => {
 			const id = match.params.id;
 			const res = await getApiResource(`${API_PERSON}/${id}/`);
-			console.log(res);
 			if (res) {
 				setPersonInfo([
 					{ title: 'Height', data: res.height },

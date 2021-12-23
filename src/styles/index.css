@@ -7,8 +7,11 @@
 	--color-violet: #ae72c2;
 
 	--spacing-small: 10px;
+	--spacing-ultrasmall: 10px;
 	--spacing-medium: 20px;
 	--spacing-large: 30px;
+
+	--margin-list: 7px;
 	--width-max: 1200px;
 
 	--font-family-main: sans-serif;
@@ -20,6 +23,7 @@
 	--text-shadow-blue: 0px 0px 2px var(--color-white), 0px 0px 40px var(--color-blue);
 
 	--border-radius-small: 3px;
+	--border-radius-medium: 5px;
 
 	--theme-default-header: #cccc46;
 	--theme-default-bg-image: url(@static/bg.jpg);

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import styles from './PersonPhoto.module.css';
 const PersonPhoto = ({ personPhoto, personName }) => {
 	return (
-		<div>
-			<img src={personPhoto} alt={personName} />
+		<div className={styles.container}>
+			<img className={styles.photo} src={personPhoto} alt={personName} />
 		</div>
 	);
 };
