@@ -4,6 +4,7 @@ import { withErrorApi } from '@hoc-helpers/withErrorApi';
 
 import PersonInfo from '@components/PersonPage/PersonInfo';
 import PersonPhoto from '@components/PersonPage/PersonPhoto';
+import PersonFilms from '@components/PersonPage/PersonFilms';
 import PersonLinkBack from '@components/PersonPage/PersonLinkBack';
 
 import propTypes from 'prop-types';
@@ -14,6 +15,7 @@ const PersonPage = ({ match, setErrorApi }) => {
 	const [personInfo, setPersonInfo] = useState(null);
 	const [personName, setPersonName] = useState(null);
 	const [personPhoto, setPersonPhoto] = useState(null);
+	const [personFilms, setPersonFilms] = useState(null);
 
 	useEffect(() => {
 		(async () => {
@@ -32,7 +34,8 @@ const PersonPage = ({ match, setErrorApi }) => {
 				setPersonName(res.name);
 				setPersonPhoto(getPeopleImage(id));
 				setErrorApi(false);
-				// res.films
+				res.films && setPersonFilms(res.films);
+				console.log(res.films);
 			} else {
 				setErrorApi(true);
 			}
@@ -47,6 +50,7 @@ const PersonPage = ({ match, setErrorApi }) => {
 				<div className={styles.container}>
 					<PersonPhoto personPhoto={personPhoto} personName={personName} />
 					{personInfo && <PersonInfo personInfo={personInfo} />}
+					{personFilms && <PersonFilms personFilms={personFilms} />}
 				</div>
 			</div>
 		</>
