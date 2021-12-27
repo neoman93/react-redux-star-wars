@@ -49,14 +49,13 @@ const PersonPage = ({ match, setErrorApi }) => {
 	return (
 		<>
 			<PersonLinkBack />
-			<UiLoading theme="white" />
 			<div className={styles.wrapper}>
 				<span className={styles.person__name}>{personName}</span>
 				<div className={styles.container}>
 					<PersonPhoto personPhoto={personPhoto} personName={personName} />
 					{personInfo && <PersonInfo personInfo={personInfo} />}
 					{personFilms && (
-						<Suspense fallback={<UiLoading theme="white" />}>
+						<Suspense fallback={<UiLoading />}>
 							<PersonFilms personFilms={personFilms} />
 						</Suspense>
 					)}
