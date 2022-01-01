@@ -18,7 +18,6 @@ const FavoritesPage = () => {
 					...item[1],
 				};
 			});
-			console.log(res);
 			setPeople(res);
 		}
 	}, []);

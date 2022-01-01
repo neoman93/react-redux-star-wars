@@ -54,7 +54,7 @@ const PersonPage = ({ match, setErrorApi }) => {
 				setErrorApi(true);
 			}
 		})();
-	}, []);
+	}, [match]);
 
 	return (
 		<>

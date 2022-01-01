@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import { makeConCurrentRequest, changeHTTP } from '@utils/network';
 import styles from './PersonFilms.module.css';
+
 const PersonFilms = ({ personFilms }) => {
 	const [filmsName, setFilmsName] = useState([]);
 	useEffect(() => {
@@ -11,7 +12,7 @@ const PersonFilms = ({ personFilms }) => {
 
 			setFilmsName(response);
 		})();
-	}, []);
+	}, [personFilms]);
 	return (
 		<div className={styles.wrapper}>
 			<ul className={styles.list__container}>
