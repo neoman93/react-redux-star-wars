@@ -5,6 +5,8 @@ import PersonInfo from '@components/PersonPage/PersonInfo';
 import PersonPhoto from '@components/PersonPage/PersonPhoto';
 import PersonLinkBack from '@components/PersonPage/PersonLinkBack';
 
+import { useSelector } from 'react-redux';
+
 import UiLoading from '@components/Ui/UiLoading';
 
 import propTypes from 'prop-types';
@@ -16,15 +18,24 @@ import styles from './PersonPage.module.css';
 const PersonFilms = React.lazy(() => import('@components/PersonPage/PersonFilms'));
 
 const PersonPage = ({ match, setErrorApi }) => {
+	const [personId, setPersonId] = useState(null);
 	const [personInfo, setPersonInfo] = useState(null);
 	const [personName, setPersonName] = useState(null);
 	const [personPhoto, setPersonPhoto] = useState(null);
 	const [personFilms, setPersonFilms] = useState(null);
+	const [personFavorite, setPersonFavorite] = useState(false);
+
+	const storeData = useSelector((state) => state.favoriteReducer);
 
 	useEffect(() => {
 		(async () => {
 			const id = match.params.id;
 			const res = await getApiResource(`${API_PERSON}/${id}/`);
+
+			storeData[id] ? setPersonFavorite(true) : setPersonFavorite(false);
+
+			setPersonId(id);
+
 			if (res) {
 				setPersonInfo([
 					{ title: 'Height', data: res.height },
@@ -39,7 +50,6 @@ const PersonPage = ({ match, setErrorApi }) => {
 				setPersonPhoto(getPeopleImage(id));
 				setErrorApi(false);
 				res.films && setPersonFilms(res.films);
-				console.log(res.films);
 			} else {
 				setErrorApi(true);
 			}
@@ -52,7 +62,13 @@ const PersonPage = ({ match, setErrorApi }) => {
 			<div className={styles.wrapper}>
 				<span className={styles.person__name}>{personName}</span>
 				<div className={styles.container}>
-					<PersonPhoto personPhoto={personPhoto} personName={personName} />
+					<PersonPhoto
+						personPhoto={personPhoto}
+						personName={personName}
+						personId={personId}
+						personFavorite={personFavorite}
+						setPersonFavorite={setPersonFavorite}
+					/>
 					{personInfo && <PersonInfo personInfo={personInfo} />}
 					{personFilms && (
 						<Suspense fallback={<UiLoading />}>
