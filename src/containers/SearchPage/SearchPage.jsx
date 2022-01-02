@@ -7,7 +7,7 @@ import { API_SEARCH } from '@constants/api';
 import { withErrorApi } from '@hoc-helpers/withErrorApi';
 import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
 import SearchPageInfo from '@components/SearchPage/SearchPageInfo';
-import UiInput from '@components/Ui/UiInput';
+import UiInput from '@ui/UiInput/UiInput';
 
 import styles from './SearchPage.module.css';
 import { useState } from 'react';

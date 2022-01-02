@@ -7,7 +7,7 @@ import PersonLinkBack from '@components/PersonPage/PersonLinkBack';
 
 import { useSelector } from 'react-redux';
 
-import UiLoading from '@components/Ui/UiLoading';
+import UiLoading from '@ui/UiLoading';
 
 import propTypes from 'prop-types';
 import { getApiResource } from '@utils/network';
